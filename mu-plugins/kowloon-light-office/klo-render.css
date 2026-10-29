@@ -1,0 +1,272 @@
+/* KLO Render — markup produced by the klo-render mu-plugin shortcodes.
+   Tokens mirror klo-kit.css; loaded sitewide (small file). */
+
+.klo-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:72px;padding-top:40px;border-top:1px solid rgba(10,13,28,.14)}
+@media (max-width:1024px){.klo-stats-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:767px){.klo-stats-grid{grid-template-columns:repeat(2,1fr);margin-top:48px;gap:24px}}
+
+.klo-details-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+@media (max-width:767px){.klo-details-grid{grid-template-columns:1fr}}
+.klo-detail{margin:0}
+body .klo-detail img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:20px;display:block}
+.klo-detail figcaption{font:400 14px/21px "Instrument Sans",system-ui,sans-serif;color:#5c584d;margin-top:12px}
+.klo-panel:not(.klo-panel--paper) .klo-detail figcaption{color:#a9a498}
+
+.klo-lines>div{padding:4px 0}
+.klo-team-name{font-weight:600}
+.klo-visit-label{margin-bottom:8px}
+.klo-visit-link{font:600 12px/16px "Instrument Sans",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#c8f25c;border-bottom:3px solid currentColor;padding-bottom:4px;display:inline-flex;min-height:44px;align-items:center}
+.klo-visit-link:hover{color:#54dff0}
+.klo-panel--jade .klo-visit-link{color:#c8f25c}
+.klo-panel--jade .klo-visit-link:hover{color:#54dff0}
+
+.klo-bend-card .klo-card-media{position:relative}
+.klo-card-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+.klo-search-thumb{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;display:block}
+
+/* Hide a whole search group when its grid came back empty (helper 3 hides
+   the grid widget itself; this removes the now-orphaned label row). */
+.klo-search-group:has(.elementor-widget-loop-grid[style*="display: none"]){display:none}
+
+/* ---- Bend media panel (shortcode-rendered klo-panel) ---- */
+.klo-bend-media{padding:128px 96px 128px 120px;margin-bottom:var(--frame,12px)}
+@media (max-width:1024px){.klo-bend-media{padding:96px 40px 96px 64px}}
+@media (max-width:767px){.klo-bend-media{padding:64px 16px 64px 40px}}
+.klo-media-h2{font-family:"Bricolage Grotesque","Arial Narrow",sans-serif;font-weight:800;font-variation-settings:"wdth" 75;text-transform:uppercase;font-size:clamp(40px,6vw,72px);line-height:.92;margin:24px 0 48px}
+.klo-screens-grid{display:grid;grid-template-columns:3fr 1fr;gap:24px;align-items:end}
+@media (max-width:767px){.klo-screens-grid{grid-template-columns:1fr}}
+.klo-screen-card{margin:0;background:#0a0d1c;border:1px solid #2a2f45;border-radius:16px;padding:12px}
+body .klo-screen-card img{width:100%;display:block;border-radius:8px}
+.klo-screen-card--mob{max-width:300px;width:100%;justify-self:end}
+@media (max-width:767px){.klo-screen-card--mob{justify-self:start}}
+.klo-media-caption{font:400 14px/21px "Instrument Sans",system-ui,sans-serif;color:#a9a498;margin-top:16px}
+.klo-bend-media .klo-details-grid{margin-top:48px}
+
+/* ---- Template utility classes ---- */
+.klo-lime{color:#c8f25c}
+.klo-small-text{font:400 14px/21px "Instrument Sans",system-ui,sans-serif}
+.klo-nowrap{white-space:nowrap}
+.klo-email-pink,.klo-email-pink a{color:#ff4fa3}
+.klo-email-pink a:hover{color:#54dff0}
+.klo-panel--jade .klo-email-pink,.klo-panel--jade .klo-email-pink a{color:#c8f25c}
+.klo-giant .elementor-heading-title{color:#ff4fa3;text-shadow:0 0 12px rgba(255,79,163,.6)}
+.klo-contact-h2 .elementor-heading-title{font-family:"Bricolage Grotesque","Arial Narrow",sans-serif;font-weight:800;font-variation-settings:"wdth" 75;text-transform:uppercase;font-size:clamp(44px,8.6vw,124px);line-height:.92}
+.klo-count-num{font-family:"Bricolage Grotesque","Arial Narrow",sans-serif;font-weight:800;font-variation-settings:"wdth" 75;font-size:clamp(96px,16vw,240px);line-height:.8;color:#ff4fa3;text-shadow:0 0 12px rgba(255,79,163,.6)}
+@media (max-width:767px){.klo-count-num{font-size:96px}}
+.klo-close-x{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:2px solid #f2ebdc;color:#f2ebdc;font-size:26px;line-height:1;text-decoration:none}
+.klo-close-x:hover{color:#54dff0;border-color:#54dff0}
+.klo-panel--jade a.klo-close-x{color:#f2ebdc}
+.klo-panel--jade a.klo-close-x:hover{color:#54dff0}
+.klo-arrow{color:#ff4fa3}
+.klo-panel--jade .klo-arrow{color:#c8f25c}
+
+/* Menu popup: 01–05 numbers as lime prefixes (Elementor's walker does not
+   print menu-item descriptions, so the numbers come from CSS counters). */
+.klo-menu-nav .elementor-nav-menu{counter-reset:klo-menu}
+/* the design's numerals lead each huge link in
+   Uranium Lime. They CANNOT live on the anchor's ::before — Elementor's
+   pointer layer owns that pseudo (position:absolute, full-width, 3px,
+   opacity:0; the old 12px counter rule wrote into that invisible strip,
+   which is why no numeral ever rendered). The counter rides the <li>
+   instead: the li becomes the flex row, its ::before is the numeral in
+   the same display type as the link (DS display-l token), baseline-aligned. */
+.klo-menu-nav .elementor-nav-menu>li{display:flex;align-items:baseline}
+.klo-menu-nav .elementor-nav-menu>li::before{counter-increment:klo-menu;content:counter(klo-menu,decimal-leading-zero);color:#c8f25c;margin-right:.22em;font-family:var(--font-display);font-weight:800;font-variation-settings:"wdth" 75;font-size:clamp(44px,7.2vw,120px);line-height:.88}
+/* the Chinese stamp rides inside each menu title (<span class="stamp">);
+   DS stamp size 14px, shoulder-aligned against the display type. */
+.klo-menu-nav .stamp{font-size:14px;vertical-align:super;margin-left:16px}
+/* Mobile fit: at 390 the word+numeral line is ≈304px of
+   the 310px column, so an overflowing stamp wraps under its word instead
+   of clipping at the panel edge (only NOTEBOOK overflows; short lines
+   keep their stamps inline). At ≤359 the DS 44px floor itself cannot fit
+   "04 NOTEBOOK" (304px > 240px column), so the nav drops to 34px there —
+   the one sub-DS size in the popup, geometry-forced and named. */
+@media (max-width:767px){
+.klo-menu-nav .elementor-nav-menu>li>a{flex-wrap:wrap}
+}
+@media (max-width:359px){
+.klo-menu-nav .elementor-nav-menu>li>a{font-size:34px !important}
+.klo-menu-nav .elementor-nav-menu>li::before{font-size:34px}
+}
+/* current-page highlight. Core never marks these custom menu items
+   current (theme-builder documents render under a swapped query, so
+   _wp_menu_item_classes_by_context matches nothing — verified live on
+   /bends/ + /studio/: zero current classes anywhere). Keyed on body
+   classes instead; mirrors the kit's elementor-item-active treatment. */
+body.post-type-archive-bend .klo-menu-nav li.menu-item-8>a,
+body.single-bend .klo-menu-nav li.menu-item-8>a,
+body.page-id-239 .klo-menu-nav li.menu-item-9>a,
+body.page-id-240 .klo-menu-nav li.menu-item-10>a,
+body.blog .klo-menu-nav li.menu-item-11>a,
+body.single-post .klo-menu-nav li.menu-item-11>a,
+body.page-id-241 .klo-menu-nav li.menu-item-12>a,
+body.parent-pageid-241 .klo-menu-nav li.menu-item-12>a{color:#c8f25c !important;text-shadow:0 0 12px rgba(200,242,92,.55)}
+/* design — the popup email is lime AND underlined (was lime, no underline). */
+.klo-panel--jade .klo-email-pink a{text-decoration:underline;text-underline-offset:3px}
+/* DS HeaderMenu — the jade panel draws in over 600ms with ease-tube.
+   Pro's slideInRight runs 0.6s (post-139.css) but with animate.css's default
+   `ease`; this pins the timing function. Exit is slideOutRight (settings),
+   same rule. Reduced motion keeps helpers.css's 120ms fade (its shorthand
+   resets the timing inside the media query's own cascade context). */
+#elementor-popup-modal-139 .dialog-widget-content{animation-timing-function:cubic-bezier(.16,1,.3,1)}
+/* the stored 420px width on the right column emits no CSS on this
+   install (inert-width pattern, Steps 2/3); the builder's own flex vars
+   carry it instead. NOTE the trap: Elementor's `.e-con.e-flex` rule
+   (0,2,0) sets `flex:var(--flex-grow) var(--flex-shrink) var(--flex-basis)`
+   and loads after this file, so a plain flex shorthand at (0,2,0) ties and
+   loses. Setting the vars at (0,3,0) — the shape of Elementor's own
+   generated selectors — wins inside the shorthand itself.
+   Desktop only — below 1025 the row wraps and the column goes full width. */
+@media (min-width:1025px){
+.elementor-139 .elementor-element.elementor-element-b7f600d{--flex-basis:0%;--flex-grow:1;--flex-shrink:1;min-width:0}
+.elementor-139 .elementor-element.elementor-element-d18ff8e{--flex-basis:420px;--flex-grow:0;--flex-shrink:0}
+}
+
+/* Footer nav menus — selectors raised above Elementor's widget CSS
+   (.elementor-widget-nav-menu .elementor-nav-menu .elementor-item is (0,3,0)
+   and binds menu items to the kit PRIMARY typography = Display L, 120px).
+   Link states per the One Line rules: pink default, cyan hover/focus,
+   lime active (current page). */
+.elementor-widget-nav-menu.klo-foot-nav .elementor-nav-menu--main .elementor-item{font:400 17px/27px "Instrument Sans",system-ui,sans-serif;color:#ff4fa3;padding:5px 0;min-height:36px;display:inline-flex;align-items:center}
+.elementor-widget-nav-menu.klo-foot-nav .elementor-nav-menu--main .elementor-item:hover,
+.elementor-widget-nav-menu.klo-foot-nav .elementor-nav-menu--main .elementor-item:focus-visible{color:#54dff0}
+.elementor-widget-nav-menu.klo-foot-nav .elementor-nav-menu--main .elementor-item.elementor-item-active{color:#c8f25c}
+
+/* Person card image */
+.klo-person-card-img img{aspect-ratio:1/1;object-fit:cover;border-radius:20px;width:100%}
+
+/* Entry / sign media ratios */
+.klo-entry .klo-card-media img,.klo-sign .klo-card-media img{aspect-ratio:4/3;object-fit:cover;width:100%}
+.klo-entry .klo-card-media img{aspect-ratio:3/2}
+
+/* Bend prev/next cards */
+.klo-prevnext .elementor-post-navigation{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:767px){.klo-prevnext .elementor-post-navigation{grid-template-columns:1fr}}
+.klo-prevnext .elementor-post-navigation__link{border:2px solid #2a2f45;border-radius:20px;padding:32px;width:auto}
+@media (max-width:767px){.klo-prevnext .elementor-post-navigation__link{padding:20px}}
+.klo-prevnext .elementor-post-navigation__link:hover{border-color:#54dff0}
+.klo-prevnext .post-navigation__next--title,.klo-prevnext .post-navigation__prev--title{font-family:"Bricolage Grotesque","Arial Narrow",sans-serif;font-weight:800;font-variation-settings:"wdth" 75;text-transform:uppercase;font-size:clamp(26px,2.8vw,40px);line-height:.95;color:#f2ebdc}
+.klo-prevnext .post-navigation__next--label,.klo-prevnext .post-navigation__prev--label{font:600 12px/16px "Instrument Sans",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#a9a498}
+/* prev/next cards rendered by the [klo_prevnext] shortcode — the
+   Post Navigation widget's own stylesheet forces 50%-wide nowrap links and
+   it cannot print neighbour ACF data (Bend No., meta line). Anatomy: build
+   spec 3.3 Bend — 05; values are the design system's own card values. */
+.klo-prevnext-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:767px){.klo-prevnext-cards{grid-template-columns:1fr}}
+.klo-pn-card{display:flex;flex-direction:column;gap:12px;border:2px solid #2a2f45;border-radius:20px;padding:32px;text-decoration:none}
+@media (max-width:767px){.klo-pn-card{padding:20px}}
+.klo-pn-card:hover{border-color:#54dff0}
+.klo-pn-card--next{text-align:right;align-items:flex-end}
+.klo-pn-card--only{grid-column:2}
+@media (max-width:767px){.klo-pn-card--only{grid-column:auto}}
+.klo-pn-label{font:600 12px/16px "Instrument Sans",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#a9a498}
+.klo-pn-title{font-family:"Bricolage Grotesque","Arial Narrow",sans-serif;font-weight:800;font-variation-settings:"wdth" 75;text-transform:uppercase;font-size:clamp(26px,2.8vw,40px);line-height:.95;color:#f2ebdc}
+.klo-pn-meta{font:400 14px/21px "Instrument Sans",system-ui,sans-serif;color:#a9a498}
+
+/* Search widget (Search template bar) */
+.klo-search{max-width:880px}
+.klo-search input[type="search"],.klo-search .e-search-input{font-family:"Bricolage Grotesque","Arial Narrow",sans-serif;font-weight:800;font-variation-settings:"wdth" 75;text-transform:uppercase;font-size:32px;height:72px;border-radius:999px;background:#1a1d2b;color:#f2ebdc;border:2px solid #6b7090;padding:0 28px}
+@media (max-width:767px){.klo-search input[type="search"],.klo-search .e-search-input{font-size:24px;height:56px}}
+.klo-search button[type="submit"],.klo-search .e-search-submit{height:72px;border-radius:999px;background:#ff4fa3;color:#0a0d1c;font:600 12px/16px "Instrument Sans",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:0 28px;border:none}
+@media (max-width:767px){.klo-search button[type="submit"],.klo-search .e-search-submit{height:56px}}
+.klo-search .elementor-search-form__input{font-family:"Bricolage Grotesque","Arial Narrow",sans-serif;font-weight:800;font-variation-settings:"wdth" 75;text-transform:uppercase;font-size:32px;height:72px;border-radius:999px;background:#1a1d2b;color:#f2ebdc;border:2px solid #6b7090;padding:0 28px}
+.klo-search .elementor-search-form__submit{height:72px;border-radius:999px;background:#ff4fa3;color:#0a0d1c;font:600 12px/16px "Instrument Sans",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:0 28px;border:none;min-width:0}
+@media (max-width:767px){.klo-search .elementor-search-form__input{font-size:24px;height:56px}.klo-search .elementor-search-form__submit{height:56px}}
+
+/* Hero image ratios */
+body .klo-hero-img img{aspect-ratio:16/9;object-fit:cover;width:100%;border-radius:20px}
+/* body prefix beats the (0,1,1) tie that left the radius at 0
+   (same rule family). The pink vertical line down the image's left edge is
+   an inset shadow, so it follows the 20px corner radius and never
+   disturbs the layout box. */
+body .klo-entry-hero img{aspect-ratio:3/2;object-fit:cover;width:100%;border-radius:20px;box-shadow:inset 3px 0 0 #ff4fa3}
+
+/* entry H1, printed by [klo_post_title] (a dynamic title tag
+   cannot carry the design's lit final word). klo-d-l metrics; the measure
+   resolves the digest's tension (title block ~60% of the canvas vs the
+   spec line's 1100px) in the design's favour: 860px at 1440. */
+.klo-entry-title{font-family:"Bricolage Grotesque","Arial Narrow",sans-serif;font-weight:800;font-variation-settings:"wdth" 75,"opsz" 96;text-transform:uppercase;font-size:clamp(44px,8.4vw,120px);line-height:.88;color:#f2ebdc;max-width:860px;margin:0}
+
+/* entry rows (template 146): the media container's stored
+   360px width emits no CSS at all in this Elementor version, so the flex
+   row split ~50/50. Pin the design's 360px media column on tablet up;
+   mobile stacks full-width per the stored direction. */
+@media (min-width:768px){body .klo-entry .klo-card-media{flex:0 0 360px;max-width:360px}}
+
+/* Footer + menu small link rows */
+.klo-foot-legal a,.klo-foot-search{font:600 12px/16px "Instrument Sans",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;margin-left:24px}
+.klo-foot-legal a:first-child{margin-left:0}
+.klo-foot-search{margin-left:0}
+/* colour made deliberate (the rule above used to say rice paper,
+   but the kit base .elementor-kit-5 a rule won the cascade and rendered
+   them pink anyway). One Line states: pink default, cyan hover/focus.
+   Scoped to the footer template (.elementor-150) to beat the kit rule. */
+.elementor-150 .klo-foot-legal a,.elementor-150 .klo-foot-search{color:#ff4fa3}
+.elementor-150 .klo-foot-legal a:hover,.elementor-150 .klo-foot-search:hover,
+.elementor-150 .klo-foot-legal a:focus-visible,.elementor-150 .klo-foot-search:focus-visible{color:#54dff0}
+.klo-menu-socials a{font:600 12px/16px "Instrument Sans",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#c8f25c;margin-right:24px}
+.klo-menu-socials a:hover{color:#54dff0}
+.klo-panel--jade .klo-menu-socials a{color:#c8f25c}
+.klo-panel--jade .klo-menu-socials a:hover{color:#54dff0}
+
+/* Bends empty state (Loop Grid nothing-found message) */
+.klo-empty{border:2px dashed #6b7090;border-radius:24px;padding:72px 32px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}
+.klo-empty h2{font-family:"Bricolage Grotesque","Arial Narrow",sans-serif;font-weight:800;font-variation-settings:"wdth" 75;text-transform:uppercase;font-size:clamp(26px,2.8vw,40px);line-height:.95;margin:0}
+.klo-empty p{margin:0;max-width:52ch;color:#a9a498}
+.klo-empty a.klo-btn-p,.klo-empty a.klo-btn-s{font:600 12px/16px "Instrument Sans",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;min-height:48px;padding:0 24px;border-radius:999px;display:inline-flex;align-items:center;text-decoration:none;margin:0 4px}
+.klo-empty a.klo-btn-p{background:#ff4fa3;color:#0a0d1c}
+.klo-empty a.klo-btn-p:hover{background:#54dff0}
+.klo-empty a.klo-btn-s{background:transparent;color:#f2ebdc;border:2px solid #6b7090}
+.klo-empty a.klo-btn-s:hover{border-color:#54dff0;color:#54dff0}
+
+/* ---------- footer structure ---------- */
+/* Column widths: the containers' width settings (32/21/21/21, then
+   100/50/50/50 at <=1024px) emit no --width in the generated post CSS on
+   this install (the header pattern), so the widths live here,
+   mirroring the data settings exactly. */
+/* The percentages absorb the row's 48px gaps (flex-wrap forms lines from
+   hypothetical sizes before any shrinking, so raw 32/21/21/21 + 3x48px of
+   gap overflows every real panel width and wraps the last column). Each
+   column gives back its gap share, keeping the data's proportions.
+   Selectors carry .e-con to beat Elementor's own mobile reset
+   @media(max-width:767px){.e-con.e-flex{--width:100%}} (0,2,0, later). */
+.elementor-150 .e-con.klo-foot-col-brand{--width:calc(32% - 36px)}
+.elementor-150 .e-con.klo-foot-col{--width:calc(21% - 36px)}
+@media (max-width:1024px){
+  .elementor-150 .e-con.klo-foot-col-brand{--width:100%}
+  .elementor-150 .e-con.klo-foot-col{--width:calc(50% - 24px)}
+}
+/* Legal line: the text-editor widget's typography binding keeps its <p>
+   at body size/colour, so the footer's small-print widget (the only one
+   carrying both classes) gets its intended klo-small-text (14/21) +
+   klo-muted treatment explicitly. */
+.elementor-150 .elementor-widget-text-editor.klo-small-text.klo-muted,
+.elementor-150 .elementor-widget-text-editor.klo-small-text.klo-muted p{font-size:14px;line-height:21px;color:#a9a498}
+/* Giant sign-off at 320: keep the design's two-line stack
+   ("LIGHTS ON" / "AT SEVEN.") instead of orphaning "ON". */
+@media (max-width:340px){
+  .elementor-150 .elementor-element.elementor-element-9daf6bf.klo-giant .elementor-heading-title{font-size:46px}
+}
+
+/* search rows: the thumb container's stored width is inert, so the
+   column is fixed by flex basis (140 desktop / 96 mobile, spec §3.7); the
+   thumb radius is restated at (0,2,1) (the (0,1,0) rule above loses); the
+   "Open" span takes the kit text-link recipe (the kit rule is anchor-keyed
+   and the row's container link is D7-parked); the snippet's matched word
+   lights Tube Pink via <mark class="klo-hl">. */
+.elementor .klo-search-result .klo-search-thumbcol{flex:0 0 140px}
+@media (max-width:767px){.elementor .klo-search-result .klo-search-thumbcol{flex-basis:96px}}
+.klo-search-result img.klo-search-thumb{border-radius:12px}
+.klo-search-result .klo-tlink{flex:0 0 auto;font:600 12px/16px 'Instrument Sans',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#ff4fa3;border-bottom:3px solid currentColor;padding-bottom:4px;white-space:nowrap}
+.klo-hl{background:none;color:#ff4fa3}
+
+/* the SEARCH pill is a DS Button primary: it has a
+   hover fill (Argon Cyan, via the widget's own controls) but no glow,
+   and no :active rule reaches it, so a press read hover-cyan. Hover
+   takes the DS glow-cyan (uncontested property — lands plainly).
+   Pressed takes Uranium Lime: the widget's generated hover rule sits
+   at (0,5,0) via the element id class, so the one !important here is
+   the honest way past it (same pattern as the kit's focus ring). */
+.elementor-155 .klo-search .elementor-search-form__submit:hover{box-shadow:0 0 12px rgba(84,223,240,.6)}
+.elementor-155 .klo-search .elementor-search-form__submit:active{background:#c8f25c!important;transform:translateY(1px)}
